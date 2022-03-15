@@ -1,0 +1,19 @@
+{
+    "name": "itsmejgrant/custom-post-type-helper",
+    "description": "A small helper package to hide away most of the config for creating Custom Post Types in WordPress",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Itsmejgrant\\CustomPostTypeHelper\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Joe Grant",
+            "email": "jmgrant1995@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

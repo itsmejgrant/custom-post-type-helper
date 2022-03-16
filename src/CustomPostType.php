@@ -1,5 +1,7 @@
 <?php
 
+namespace Itsmejgrant\CustomPostTypeHelper;
+
 /**
  * A tidy helper class for cleanly creating custom post types
  *

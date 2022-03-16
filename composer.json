@@ -5,7 +5,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Itsmejgrant\\CustomPostTypeHelper\\": "src/"
+            "Itsmejgrant\\CustomPostTypeHelper\\": "src"
         }
     },
     "authors": [
@@ -15,5 +15,7 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "php": ">=7.4"
+    }
 }

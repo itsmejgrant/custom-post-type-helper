@@ -6,24 +6,28 @@ namespace Itsmejgrant\CustomPostTypeHelper;
  * A tidy helper class for cleanly creating custom post types
  *
  * @param string $name
+ * @param string|null $menu_icon
  * @param array $labels
  * @param array $args
  */
 class CustomPostType {
     protected string $name;
+    protected string | null $menu_icon;
     protected array $labels;
     protected array $args;
 
     /**
      * Load everything
      *
-     * @param String $name
-     * @param Array $labels
-     * @param Array $args
+     * @param string $name
+     * @param string|null $menu_icon
+     * @param array $labels
+     * @param array $args
      */
-    public function __construct(String $name = '', array $labels = [], array $args = []) {
+    public function __construct(string $name = '', string | null $menu_icon = null, array $labels = [], array $args = []) {
         // Bind variables
         $this->name = $name;
+        $this->menu_icon = $menu_icon;
         $this->labels = $labels;
         $this->args = $args;
 
@@ -138,6 +142,7 @@ class CustomPostType {
             "capability_type" => "page",
             "show_in_rest" => true,
             "rewrite" => true,
+            "menu_icon" => $this->menu_icon,
         );
     }
 

@@ -11,11 +11,6 @@ namespace Itsmejgrant\CustomPostTypeHelper;
  * @param array $args
  */
 class CustomPostType {
-    protected string $name;
-    protected string | null $menu_icon;
-    protected array $labels;
-    protected array $args;
-
     /**
      * Load everything
      *
@@ -24,7 +19,7 @@ class CustomPostType {
      * @param array $labels
      * @param array $args
      */
-    public function __construct(string $name = '', string | null $menu_icon = null, array $labels = [], array $args = []) {
+    public function __construct(string $name = '', string $menu_icon = '', array $labels = [], array $args = []) {
         // Bind variables
         $this->name = $name;
         $this->menu_icon = $menu_icon;

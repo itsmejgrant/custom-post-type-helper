@@ -10,7 +10,8 @@ namespace Itsmejgrant\CustomPostTypeHelper;
  * @param array $labels
  * @param array $args
  */
-class CustomPostType {
+class CustomPostType
+{
     /**
      * Load everything
      *
@@ -19,7 +20,8 @@ class CustomPostType {
      * @param array $labels
      * @param array $args
      */
-    public function __construct(string $name = '', string $menu_icon = '', array $labels = [], array $args = []) {
+    public function __construct(string $name = '', string $menu_icon = '', array $labels = [], array $args = [])
+    {
         // Bind variables
         $this->name = $name;
         $this->menu_icon = $menu_icon;
@@ -49,7 +51,8 @@ class CustomPostType {
      *
      * @return void
      */
-    public function set_labels(array $labels = []): void {
+    public function set_labels(array $labels = []): void
+    {
         // Not valid, throw an error
         if (empty($labels) || !$this->__is_associative_array($labels)) {
             throw new Exception('Please provide a valid list arguments');
@@ -70,18 +73,20 @@ class CustomPostType {
      *
      * @return void
      */
-    protected function __set_default_labels(): void {
+    protected function __set_default_labels(): void
+    {
+        $singular_name = rtrim($this->name, "s");
         $this->labels = array(
             "name" => _x("$this->name", "Post Type General Name"),
-            "singular_name" => _x(rtrim($this->name, "s"), "Post Type Singular Name"),
+            "singular_name" => _x($singular_name, "Post Type Singular Name"),
             "menu_name" => __("$this->name"),
             "parent_item_colon" => __("Parent $this->name"),
-            "all_items" => __("All Items"),
-            "view_item" => __("View $this->name"),
-            "add_new_item" => __("Add New $this->name"),
+            "all_items" => __("All $this->name"),
+            "view_item" => __("View $singlular_name"),
+            "add_new_item" => __("Add New $singlular_name"),
             "add_new" => __("Add New"),
-            "edit_item" => __("Edit $this->name"),
-            "update_item" => __("Update $this->name"),
+            "edit_item" => __("Edit $singlular_name"),
+            "update_item" => __("Update $singlular_name"),
             "search_items" => __("Search $this->name"),
             "not_found" => __("Not Found"),
             "not_found_in_trash" => __("Not found in Trash"),
@@ -95,7 +100,8 @@ class CustomPostType {
      *
      * @return void
      */
-    public function set_args(array $args = []): void {
+    public function set_args(array $args = []): void
+    {
         // Not valid, throw an error
         if (empty($args) || !$this->__is_associative_array($args)) {
             throw new Exception('Please provide a valid list arguments');
@@ -117,7 +123,8 @@ class CustomPostType {
      *
      * @return void
      */
-    protected function __set_default_args(): void {
+    protected function __set_default_args(): void
+    {
         $this->args = array(
             "label" => __($this->name),
             "labels" => $this->labels,
@@ -146,7 +153,8 @@ class CustomPostType {
      *
      * @return void
      */
-    protected function __register_post(): void {
+    protected function __register_post(): void
+    {
         register_post_type($this->name, $this->args);
     }
 
@@ -156,7 +164,8 @@ class CustomPostType {
      * @param array $input_array
      * @return bool
      */
-    protected function __is_associative_array(array $input_array = null): bool {
+    protected function __is_associative_array(array $input_array = null): bool
+    {
         // An empty array is in theory a valid associative array
         // so we return 'true' for empty.
         if ($input_array === []) {
